@@ -1,0 +1,433 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;0,500;0,700;0,800;1,200;1,300;1,400;1,500;1,700&display=swap');
+@import url(https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap);
+@import 'bootstrap/bootstrap';
+@import 'bootstrap/variables';
+@import 'bootstrap/mixins';
+*{
+    margin: 0;
+    padding:0;
+    box-sizing: border-box;
+    scroll-padding-top: 2rem;
+    scroll-behavior: smooth;
+    list-style: none;
+    text-decoration: none;
+    font-family: "Poppins", sans-serif;
+}
+:root{
+	      /* ===== Colors ===== */
+    --main-color:#FFC23C;
+    --second-color:#F6f5FF;
+    --text-color: #100720;
+    --gradient: linear-gradient(#FFC23C, orange );
+	--body-color: rgb(250, 243, 116);
+	--sidebar-color: #FFF;
+  --primary-color: #FFC23C;
+  --primary-color-white: #F6f5FF;
+  --toggle-color: #DDD;
+    
+     /* ===== Transition ===== */
+  --tran-02: all 0.2s ease;
+  --tran-03: all 0.3s ease;
+  --tran-04: all 0.4s ease;
+  --tran-05: all 0.5s ease;
+}
+
+/* Custom Scroll bar */
+html::-webkit-scrollbar{
+    width: 0.5rem;
+}
+html::-webkit-scrollbar-track{
+    background: transparent;
+}
+html::-webkit-scrollbar-thumb{
+    background: var(--main-color);
+    border-radius: 5rem;
+}
+section{
+    padding: 50px 100px;
+}
+
+/* Styles for Forms */
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    margin-top: 20px; /* Adjust this value to control the space between header and form */
+    position: absolute;
+    top: 100px; /* Adjust this value to control the space between header and form */
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+
+.container form {
+    width: 430px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    display: inline-block; /* Ensure the form only takes the necessary width */
+}
+.container form h2 {
+	margin-top: 0; /* Remove default margin */
+    margin-bottom: 20px;
+    color: var(--text-color);
+    text-align: center;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    color: var(--text-color);
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.error-message {
+    color: red;
+}
+
+.btn-primary {
+    background-color: var(--main-color);
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+}
+
+.btn-primary:hover {
+    background-color: var(--text-color);
+    color: var(--main-color);
+}
+
+/* Checkbox style */
+.form-group h5 {
+    margin-bottom: 0;
+    font-size: 16px;
+    color: var(--text-color);
+}
+
+/* Link style */
+.container a {
+    color: var(--text-color);
+    text-decoration: none;
+}
+
+.container a:hover {
+    text-decoration: underline;
+}
+
+/* Optional: Hide bullet points */
+ul {
+    list-style: none;
+}
+
+.input-group select {
+	 width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.text-group {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* MENU CSS*/
+/* ===========Sidebar ================ */
+.sidebar{
+  position:  fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 250px;
+  padding: 10px 14px;
+  background: var(--sidebar-color);
+  transition: var(--tran-05);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+	opacity: 100%;
+  z-index: 1000;
+} 
+
+.sidebar.close{
+  width: 88px;
+  opacity: 100%;
+  background-color: var(--body-color);
+}
+
+/* ========== Reusable CSS =========== */
+.sidebar .text{
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--text-color);
+  transition: var(--tran-05);
+  white-space: nowrap;
+}
+
+.sidebar.close .text{
+  opacity: 0;
+}
+
+.sidebar .image{
+  min-width: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+
+.sidebar li{
+  height: 50px;
+  margin-top: 10px;
+  list-style: none;
+  display: flex;
+  align-items: center;
+
+}
+
+.sidebar li .icon{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 60px;
+  font-size: 20px;
+}
+
+.sidebar li .icon,
+.sidebar li .text{
+  color: var(--text-color);
+  transition: var(--tran-02);
+}
+
+.siderbar header{
+  position: relative;
+}
+
+.sidebar .image-text img{
+  width: 70px;
+  border-radius: 6px;
+}
+
+.sidebar header .image-text{
+  display: flex;
+  align-items: center;
+}
+
+header .image-text .header-text{
+  display: flex;
+  flex-direction: column;
+}
+
+.header-text .name{
+  font-weight: 600;
+}
+
+.header-text .profession{
+  margin-top: -2px;
+}
+
+
+.sidebar header .toggle{
+  position: absolute;
+  top: 4%;
+  right: -11px;
+  transform: translateY(-50%) rotate(180deg);
+  height: 25px;
+  width: 25px;
+  background-color: var(--primary-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  color: var(--sidebar-color);
+  font-size: 19px;
+  transition: var(--tran-03);
+  cursor: pointer;
+}
+
+.sidebar.close header .toggle{
+  transform: translateY(-50%);
+}
+
+.sidebar li a{
+  margin-top: 100px;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  text-decoration:none;
+  border-radius: 6px;
+  transition: var(--tran-04);
+}
+
+.sidebar li a:hover{
+  background: var(--primary-color);
+}
+
+.sidebar li a:hover .icon,
+.sidebar li a:hover .text{
+  color: var(--sidebar-color);
+}
+
+.sidebar .menu-bar{
+  
+  height: calc(100% - 50px);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* ========== Reusable CSS for Contents=========== */
+.table-content {
+    width: 800px;
+    margin: 50px auto;
+    text-align: center;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    border-radius: 10px;
+}
+
+thead {
+    font-weight: bold;
+    color: #fff;
+    background: var(--main-color);
+}
+
+th, td {
+    padding: 10px;
+}
+
+th {
+    background: var(--main-color);
+    color: #fff;
+}
+
+td {
+    background: var(--second-color);
+}
+
+/* Apply border to top of the first row */
+tbody tr:first-child td {
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+    
+    
+    
+            /* Apply styles here */
+        .car-container {
+            padding-left: 100px;
+			padding-right: 20px ;
+			
+        }
+
+        .error-message {
+            color: red;
+        }
+
+        .car-list-header {
+            text-align: center;
+			padding-top: 30px;
+        }
+
+		.car-list-header h2 {
+            text-align: center;
+			padding-top: 30px;
+			font-weight: 500;
+			font-size: 36px;
+        }
+
+        .btn-post-car {
+            margin-bottom: 1rem;
+        }
+
+        .search-form {
+		padding-top: 20px;
+		padding-bottom: 100px;
+		width: 50%;
+		margin: 0 auto; /* Center the form */
+		}
+
+.card-group {
+    padding: 5px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding-top: 1rem;
+}
+
+.card {
+    padding: 30px 40px;
+    width: calc(30% - 40px); /* 33.33% for each column, subtracting margin */
+    margin-bottom: 20px; /* Adjust this value as needed */
+    box-shadow: 0 20px 40px -14px rgba(0, 0, 0, 0.25);
+    background-color: var(--second-color);
+    border: 1px solid darkorange;
+    border-radius: 5px;
+}
+
+.card img {
+    padding: 5px 5px;
+    max-width: 100%;
+    height: 300px; /* Specify the height in pixels */
+    width: 300px; /* Specify the width in pixels */
+    border-radius: 10px;
+    display: block;
+}
+
+.card-body {
+    padding: 1rem;
+}
+
+.card-title {
+    font-size: 16px;
+    font-weight: 400;
+    margin-bottom: 0.5rem;
+}
+
+.card-text {
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+.btn-primaryy {
+    background-color: var(--main-color);
+    color: #fff;
+    border: none;
+    padding: 10px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+    font-size: small;
+}
+
+.btn-primaryy:hover {
+    background-color: var(--text-color);
+    color: var(--main-color);
+    font-size: small;
+    border: none;
+    padding: 10px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+}
